@@ -2,6 +2,13 @@ package com.practice;
 
 /*
 TOPP App Installer Microservice
+
+Download and install TOPP App from -
+  https://github.com/BlakeOlinger/staggingTOPPAppProgramFiles/blob/master/programFiles/install/toppAppInstaller.zip
+
+  - extract and run /bin/toppAppInstaller.bat
+
+  - add project config and git directories to customjre before ship
  */
 
 // TODO - strip current installation functionality from
@@ -21,6 +28,8 @@ TOPP App Installer Microservice
 //  - have a checkbox that allows the user to install a develop sandbox version
 //  - this will be the only option in the beginning
 //  - dev sandbox install will use the stagingProgramFiles and testDatabase instead of live
+
+// - Git won't be standalone within the microservices to start - have client download and install Git for now
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

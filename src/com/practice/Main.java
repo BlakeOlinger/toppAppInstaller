@@ -11,8 +11,6 @@ Download and install TOPP App from -
   - add project config and git directories to customjre before ship
  */
 
-// TODO - make stateless
-
 // TODO - strip current installation functionality from
 //  - toppAppMaster
 //  add in .../root install dir/config/<microservices>/ config files
@@ -33,10 +31,6 @@ Download and install TOPP App from -
 
 // - Git won't be standalone within the microservices to start - have client download and install Git for now
 
-import java.awt.*;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -47,42 +41,7 @@ public class Main {
     public static void main(String[] args) {
         logger.log(Level.INFO, "Main Thread - Start");
 
-        String file = "";
 
-            try {
-                file = Files.readString(Paths.get("uiljh"));
-            } catch (IOException e) {
-                logger.log(Level.SEVERE, "Main Thread - Error - Could not read install.ini",
-                        e);
-
-                InstallerWindow.initialize(
-                        "Enter Config Path",
-                        new Dimension(400, 200),
-                        true
-                );
-            }
-
-        var strings = file.split("\\$");
-
-        var title = strings[0];
-
-        Dimension dimension = null;
-
-        try {
-             dimension = new Dimension(Integer.valueOf(strings[1]),
-                    Integer.valueOf(strings[2]));
-        } catch (ArrayIndexOutOfBoundsException e) {
-            logger.log(Level.SEVERE, "Main Thread - Error - Index Out of Bounds", e);
-        }
-
-        try {
-            InstallerWindow.initialize(
-                    title,
-                    dimension,
-                    true);
-        } catch (NullPointerException e) {
-            logger.log(Level.SEVERE, "Main Thread - Error - Null Pointer Exception", e);
-        }
 
         logger.log(Level.INFO, "Main Thread - Exit");
     }
